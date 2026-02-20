@@ -28,7 +28,19 @@ To restart just use
 ```
 docker compose start
 ```
+### To Use GPU
 
+```
+sudo apt-get update
+sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+
+and start with another docker file
+
+```
+docker compose -f docker-compose-gpu.yaml up -d
+```
 
 # Ollama Model Naming Guide
 
@@ -150,3 +162,4 @@ A: Almost always use instruct or chat. Base models are for advanced users only.
 
 **Q: How do I estimate RAM needs?**  
 A: For q4_0 models: ~0.5-0.6 GB per billion parameters. So an 8b-q4_0 needs ~4 GB RAM.
+
